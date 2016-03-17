@@ -1,3 +1,5 @@
+package ch.hearc.ig.odi.serie7.servlets;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
