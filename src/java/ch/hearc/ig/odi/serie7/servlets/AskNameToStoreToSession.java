@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package ch.hearc.ig.odi.serie7.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jeremy.barfuss
  */
-public class AskNameToDisplay extends HttpServlet {
+public class AskNameToStoreToSession extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,11 +35,11 @@ public class AskNameToDisplay extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AskNameToDisplay</title>");            
+            out.println("<title>Servlet AskNameToStoreToSession</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AskNameToDisplay</h1>");
-            out.println("<form method='GET' action='DisplayInformations'>");
+            out.println("<h1>Servlet AskNameToStoreToSession</h1>");
+            out.println("<form method='POST' action='DisplayInformations'>");
             out.println("Prénom : <input type='text' name='prenom' />");
             out.println("<input type='submit' value='Envoyer' />");
             out.println("</form>");

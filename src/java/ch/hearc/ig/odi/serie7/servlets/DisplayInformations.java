@@ -27,23 +27,8 @@ public class DisplayInformations extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DisplayInformations</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Mon prénom : " + request.getParameter("prenom")+ "</h1>");
-            out.println("ID de la session : " + request.getSession().getId());
-            out.println("Date de création de la session : " + request.getSession().getCreationTime());
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -56,9 +41,22 @@ public class DisplayInformations extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet DisplayInformations GET</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Mon prénom : " + request.getParameter("prenom")+ "</h1>");
+            out.println("ID de la session : " + request.getSession().getId());
+            out.println("Date de création de la session : " + request.getSession().getCreationTime());
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     /**
@@ -70,9 +68,24 @@ public class DisplayInformations extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
+        try (PrintWriter out = response.getWriter()) {
+            request.getSession().setAttribute("prenom", request.getParameter("prenom"));
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet DisplayInformations POST</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Mon prénom : " + request.getParameter("prenom")+ "</h1>");
+            out.println(request.getSession().getAttribute("prenom"));
+            out.println("ID de la session : " + request.getSession().getId());
+            out.println("Date de création de la session : " + request.getSession().getCreationTime());
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     /**
